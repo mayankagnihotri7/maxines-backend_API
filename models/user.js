@@ -19,6 +19,11 @@ let userSchema = new Schema(
       trim: true,
       required: true,
     },
+    isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    verification: String,
     bio: String,
     image: String,
   },

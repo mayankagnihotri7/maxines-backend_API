@@ -7,6 +7,8 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const { error } = require("console");
 
+require('dotenv').config();
+
 var app = express();
 
 // Connect to db

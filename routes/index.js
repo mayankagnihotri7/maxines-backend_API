@@ -42,7 +42,6 @@ router.get("/api/profiles/:username", async (req, res, next) => {
         image: user.image || "",
       },
     });
-    
   } catch (error) {
     return next(error);
   }
