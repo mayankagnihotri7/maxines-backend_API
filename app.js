@@ -5,6 +5,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+let menuRouter = require('./routes/menu');
 const { error } = require("console");
 
 require('dotenv').config();
@@ -28,5 +29,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
+app.use('/api/menu', menuRouter);
 
 module.exports = app;
