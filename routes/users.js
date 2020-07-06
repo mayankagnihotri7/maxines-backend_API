@@ -4,7 +4,6 @@ let User = require("../models/user");
 let auth = require("../middlewares/auth");
 let nodemailer = require("nodemailer");
 let smtpTransport = require("nodemailer-smtp-transport");
-const { route } = require(".");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {

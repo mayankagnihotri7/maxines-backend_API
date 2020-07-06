@@ -47,4 +47,17 @@ router.get("/api/profiles/:username", async (req, res, next) => {
   }
 });
 
+// update user profile
+router.put("/api/user", auth.verifyToken, async (req, res, next) => {
+  try {
+    let user = await User.findOneAndUpdate(req.user.userId, req.body.profile, {
+      new: true,
+    });
+
+    res.json({ user });
+  } catch (error) {
+    return next(error);
+  }
+});
+
 module.exports = router;
