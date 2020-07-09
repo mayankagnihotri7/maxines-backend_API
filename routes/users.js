@@ -48,6 +48,7 @@ router.post("/", async (req, res, next) => {
     res.status(201).json({
       email: user.email,
       username: user.username,
+      verification: req.body.verification,
       token,
     });
   } catch (error) {
@@ -62,7 +63,7 @@ router.post("/:email/verify", async (req, res, next) => {
   
   if (user.verification === req.body.verification) {
     let verifiedUser = await User.updateOne(
-      { email: email.params.email },
+      { email: req.params.email },
       { isVerified: true },
       { new: true }
     );
