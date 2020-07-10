@@ -12,10 +12,13 @@ router.get("/", function (req, res, next) {
 router.get("/api/user", auth.verifyToken, async (req, res, next) => {
   try {
     let user = await User.findById(req.user.userId);
+    console.log("User Infos: ", user);
     res.status(200).json({
       user: {
-        user: user.email,
+        email: user.email,
         username: user.username,
+        bio: user.bio || "",
+        image: user.image || "",
         token: req.user.token,
       },
     });

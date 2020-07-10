@@ -10,7 +10,8 @@ exports.generateToken = async (user) => {
 };
 
 exports.verifyToken = async (req, res, next) => {
-  let token = req.headers.authorization || "";
+  let token = req.headers.authorization.split(" ")[1] || "";
+  console.log("token................",token)
   try {
     if (token) {
       let payload = await jwt.verify(token, "thisisasecret");
